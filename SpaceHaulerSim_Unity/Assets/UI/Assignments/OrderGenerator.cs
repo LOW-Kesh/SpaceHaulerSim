@@ -10,14 +10,14 @@ public class OrderGenerator : MonoBehaviour
     public bool orderAccept;
     public GameObject orderButton;
 
-    private StationManager station;
+    //private StationManager station;
 
     private float orderAmount;
     private string orderCargo;
 
     void Start()
     {
-        station = gameObject.GetComponent<StationManager>();
+        //station = gameObject.GetComponent<StationManager>();
 
         Order_Details();
 
@@ -52,6 +52,6 @@ public class OrderGenerator : MonoBehaviour
     private void Order_Details()
     {
         orderAmount = Random.Range(10, 35);
-        orderCargo = station.assignmentCargo[Random.Range(0, station.assignmentCargo.Length)];
+        //orderCargo = station.assignmentCargo[Random.Range(0, station.assignmentCargo.Length)];
     }
 }

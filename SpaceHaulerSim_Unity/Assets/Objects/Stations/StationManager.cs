@@ -4,16 +4,22 @@ using UnityEngine.UIElements;
 
 public class StationManager : MonoBehaviour
 {
-    public string[] assignmentCargo;
+    private bool alreadyAwake;
+    public string[] assignmentResources;
     public string stationType;
 
-    public void Awake()
+    private void Awake()
     {
-        Generate_Resources();
+        if (!alreadyAwake)
+        {
+            Set_Resources();
+            alreadyAwake = true;
+        }
     }
 
-    public void Generate_Resources()
+    public void Set_Resources()
     {
-        //assignmentCargo = AllResources.allResources.Resource_List_Station(stationType);
+        assignmentResources = AllResources.allResources.Station_Resource_Generator(stationType);
+        Debug.Log("Set Station Resources");
     }
 }

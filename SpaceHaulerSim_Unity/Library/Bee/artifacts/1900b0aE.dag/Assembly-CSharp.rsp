@@ -361,6 +361,7 @@
 "Assets/Player/Ship Scripts/Controls/shipcontrols.cs"
 "Assets/Player/Ship Scripts/gryoScrpt.cs"
 "Assets/Player/Ship Scripts/ShipDocking.cs"
+"Assets/StationSpawner.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"

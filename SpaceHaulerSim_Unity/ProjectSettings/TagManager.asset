@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Doors
   - Order
+  - Global
   layers:
   - Default
   - TransparentFX
