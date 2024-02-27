@@ -10,13 +10,13 @@ public class TrackableObject : MonoBehaviour
 
     void Start()
     {
-        ship = GameObject.FindGameObjectWithTag("Player").GetComponent<shipcontrols>();
         rb = GetComponent<Rigidbody>();
     }
 
     private void OnMouseDown()
     {
         Debug.Log("Object Tracked: " + gameObject.name);
+        ship = GameObject.FindGameObjectWithTag("Player").GetComponent<shipcontrols>();
         ship.isTracking = true;
         ship.trackVel = rb.velocity;
     }

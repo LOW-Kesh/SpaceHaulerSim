@@ -5,17 +5,19 @@ using UnityEngine;
 public class StationSpawner : MonoBehaviour
 {
     public GameObject station;
+    public bool spawn;
 
     void Start()
     {
-        
+        spawn = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (AllResources.allResources != null) 
+        if (AllResources.allResources != null & !spawn) 
         {
-            Instantiate(station, gameObject.transform.position, Quaternion.identity);
+            Instantiate(station, gameObject.transform.position, Quaternion.identity, gameObject.transform);
+            spawn = true;
         }
     }
 }

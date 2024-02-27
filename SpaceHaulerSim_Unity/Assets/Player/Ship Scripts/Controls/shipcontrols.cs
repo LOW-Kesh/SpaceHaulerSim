@@ -31,6 +31,8 @@ public class shipcontrols : MonoBehaviour
         xVel = 0; yVel = 0; zVel = 0;
         rb = GetComponent<Rigidbody>();
         engineLock = false;
+
+        ThrustControl = GameObject.Find("ThrustSlider").GetComponent<Slider>();
     }
 
     void FixedUpdate()

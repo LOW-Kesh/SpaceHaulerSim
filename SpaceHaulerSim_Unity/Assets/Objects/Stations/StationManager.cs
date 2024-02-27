@@ -8,6 +8,8 @@ public class StationManager : MonoBehaviour
     public string[] assignmentResources;
     public string stationType;
 
+    //public Vector3 objectID;
+
     private void Awake()
     {
         if (!alreadyAwake)

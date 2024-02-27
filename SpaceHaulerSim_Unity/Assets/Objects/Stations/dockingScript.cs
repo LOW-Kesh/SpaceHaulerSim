@@ -36,22 +36,15 @@ public class dockingScript : MonoBehaviour
                 Debug.Log("Ship Docked");
                 shipDocked = true;
                 ship.GetComponent<ShipDocking>().docked = true;
-                SceneManager.LoadScene("Assignment Screen");
+                SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
             }
             if (Input.GetKeyDown(KeyCode.Escape) && shipDocked)
             {
                 Debug.Log("Ship Departing");
                 shipDocked = false;
                 ship.GetComponent<ShipDocking>().docked = false;
+                SceneManager.UnloadSceneAsync(2, UnloadSceneOptions.None);
             }
-        }
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            
-            
         }
     }
 

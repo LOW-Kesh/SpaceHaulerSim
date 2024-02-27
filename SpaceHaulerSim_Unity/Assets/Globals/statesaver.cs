@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class statesaver : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static statesaver Statesaver;
+    public bool reset;
+    private bool spawned;
+    public Transform playerTran;
+
     void Start()
     {
-        
+        Statesaver = this;
+        Debug.Log("Game Start");
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        Debug.Log("Main scene loaded");
+
+        //intialise things
+        reset = true;
+        spawned = false;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (reset)
+        {
+            //spawn player
+            if (PlayerSpawnPoint.playerSpawnPoint != null && !spawned)
+            {
+                PlayerSpawnPoint.playerSpawnPoint.Spawn_Player(null, reset);
+                spawned = true;
+            }
+        }
+
+    }
+
+    public void SavePlayerState()
+    {
+
     }
 }

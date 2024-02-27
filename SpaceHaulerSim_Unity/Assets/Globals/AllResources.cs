@@ -6,8 +6,6 @@ public class AllResources : MonoBehaviour
 {
     public static AllResources allResources;
 
-    public bool ResourceManagerReady;
-
     public string[] allCargo;
     public int[] stationSizeCargoVariety;
     private string[] cargoList;

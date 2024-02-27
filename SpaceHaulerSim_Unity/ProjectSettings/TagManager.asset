@@ -7,6 +7,7 @@ TagManager:
   - Doors
   - Order
   - Global
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
