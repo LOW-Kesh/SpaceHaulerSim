@@ -32,6 +32,14 @@ public class statesaver : MonoBehaviour
             {
                 PlayerSpawnPoint.playerSpawnPoint.Spawn_Player(null, reset);
                 spawned = true;
+                reset = false;
+            }
+
+            //spawn stations
+            if (AllStationManager.allStations != null)
+            {
+                Debug.Log("stations spawned");
+                AllStationManager.allStations.SpawnStations();
             }
         }
 

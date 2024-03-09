@@ -1,25 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AssignmentHandler : MonoBehaviour
 {
+    public static AssignmentHandler assignmentHandler;
+
     public bool reset;
     public GameObject order;
     public GameObject content;
     public int orderCount;
     private GameObject[] orders;
 
+    public AcceptedOrder[] orderList;
+
     void Start()
     {
+        assignmentHandler = this;
         reset = false;
 
         orderCount = Random.Range(1, 5);
         for (int i = 0; i < orderCount; i++)
         {
             Instantiate(order, content.transform);
+            order.GetComponent<OrderGenerator>().orderCount = i;
         }
+
+        orderList = null;
+        orderList = new AcceptedOrder[orderCount];
     }
 
     void Update()
@@ -36,11 +44,42 @@ public class AssignmentHandler : MonoBehaviour
             for (int i = 0; i < orderCount; i++)
             {
                 Instantiate(order, content.transform);
+                order.GetComponent<OrderGenerator>().orderCount = i;
+                orderList = new AcceptedOrder[orderCount];
             }
 
             reset = false;
         }
     }
+
+    //this will hold the accepted orders while in the Assignment Menu. 
+    //the player can rescind orders while here without cost]
+    //once the player leaves, the accepted orders are carried over, and any abandoned since will carry a cost
+    
+    public void Assignment_Accept(AcceptedOrder acceptedOrder, int num)
+    {
+        Debug.Log(acceptedOrder.AOamount);
+        orderList[num] = acceptedOrder;
+        Debug.Log(orderList[num].AOcargo);
+    }
+
+    public void Assignment_Abandon(int num)
+    {
+        orderList[num] = null;
+    }
+
+    public void Assign_Objectives()
+    {
+        foreach (AcceptedOrder ord in orderList)
+        {
+            if (ord != null)
+            {
+                ObjectiveHandler.objHandler.AssignOrder(ord);
+                Debug.Log ("moved " + ord.AOamount);
+            }
+        }
+    }
+
 
     public void Reset_Assingments()
     {

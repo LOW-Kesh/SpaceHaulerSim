@@ -7,17 +7,34 @@ public class TrackableObject : MonoBehaviour
 {
     private shipcontrols ship;
     private Rigidbody rb;
+    private bool tracking;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        tracking = false;
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("Object Tracked: " + gameObject.name);
-        ship = GameObject.FindGameObjectWithTag("Player").GetComponent<shipcontrols>();
-        ship.isTracking = true;
-        ship.trackVel = rb.velocity;
+        if (tracking)
+        {
+            Debug.Log("Object Untracked: " + gameObject.name);
+            ship = shipcontrols.shipControls;
+            tracking = false;
+            TrackingUI.trackingUI.trackingObj = Vector3.zero;
+            ship.isTracking = false;
+            ship.trackVel = Vector3.zero;
+        }
+
+        else if (!tracking)
+        {
+            Debug.Log("Object Tracked: " + gameObject.name);
+            ship = shipcontrols.shipControls;
+            tracking = true;
+            TrackingUI.trackingUI.trackingObj = gameObject.transform.position;
+            ship.isTracking = true;
+            ship.trackVel = rb.velocity;
+        }
     }
 }

@@ -196,7 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assignmentResources: []
-  stationType: Waystation
+  ID: 0
+  Name: 
+  Type: Waystation
 --- !u!1 &5548001745973477319
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipDocked: 0
   withinRange: 0
+  Uicomponents: []
 --- !u!1 &8250706863809888168
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,3 +552,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipDocked: 0
   withinRange: 0
+  Uicomponents: []

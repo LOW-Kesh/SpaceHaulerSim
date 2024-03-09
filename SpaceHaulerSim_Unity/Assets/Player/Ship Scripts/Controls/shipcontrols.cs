@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class shipcontrols : MonoBehaviour
 {
+    public static shipcontrols shipControls;
+
     public bool engineLock;
 
     public float xVel;
@@ -24,9 +26,11 @@ public class shipcontrols : MonoBehaviour
     public Slider ThrustControl;
     private Rigidbody rb;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        shipControls = this;
+
         //reset speed
         xVel = 0; yVel = 0; zVel = 0;
         rb = GetComponent<Rigidbody>();

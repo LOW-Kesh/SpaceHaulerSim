@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 01be31d235a24f1438159f9987f8d974
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - trackerUI: {fileID: 3805730219828587530, guid: b1586eb4629918b4bbc2857e8a42a558, type: 3}
+  - objectiveMarkerUI: {fileID: 5905842988531771608, guid: acaeafa19b0b8314fac42c36189b68dc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

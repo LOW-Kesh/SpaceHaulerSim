@@ -13,11 +13,10 @@ public class ShipDocking : MonoBehaviour
         controls = gameObject.GetComponent<shipcontrols>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (docked)
         {
-            Debug.Log("Ship is docked");
             rb.velocity = Vector3.zero;
             controls.engineLock = true;
         }

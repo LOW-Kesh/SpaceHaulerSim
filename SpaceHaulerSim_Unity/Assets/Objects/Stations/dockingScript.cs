@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class dockingScript : MonoBehaviour
@@ -9,12 +12,14 @@ public class dockingScript : MonoBehaviour
     public bool shipDocked;
     public bool withinRange;
     private GameObject ship;
+    public GameObject[] Uicomponents;
 
     void Start()
     {
        shipDocked = false;
        withinRange = false;
        ship = GameObject.FindGameObjectWithTag("Player");
+       Uicomponents = GameObject.FindGameObjectsWithTag("UI");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +33,6 @@ public class dockingScript : MonoBehaviour
 
     private void Update()
     {
-        //bool dontDestroy = false;
         if (withinRange)
         {
             if (Input.GetKeyDown(KeyCode.Return) && !shipDocked)
@@ -36,6 +40,14 @@ public class dockingScript : MonoBehaviour
                 Debug.Log("Ship Docked");
                 shipDocked = true;
                 ship.GetComponent<ShipDocking>().docked = true;
+
+                //turn off UI in main scene 
+                foreach (var item in Uicomponents)
+                {
+                    item.SetActive(false);
+                }
+
+                //load the new scene on top of others
                 SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
             }
             if (Input.GetKeyDown(KeyCode.Escape) && shipDocked)
@@ -43,7 +55,18 @@ public class dockingScript : MonoBehaviour
                 Debug.Log("Ship Departing");
                 shipDocked = false;
                 ship.GetComponent<ShipDocking>().docked = false;
+
+                //assign objectives
+                AssignmentHandler.assignmentHandler.Assign_Objectives();
+
+                //remove old scene
                 SceneManager.UnloadSceneAsync(2, UnloadSceneOptions.None);
+
+                //turn off UI in main scene 
+                foreach (var item in Uicomponents)
+                {
+                    item.SetActive(true);
+                }
             }
         }
     }

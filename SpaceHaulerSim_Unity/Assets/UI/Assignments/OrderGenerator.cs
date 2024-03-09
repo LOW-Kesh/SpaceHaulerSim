@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,48 +11,74 @@ public class OrderGenerator : MonoBehaviour
     public bool orderAccept;
     public GameObject orderButton;
 
-    //private StationManager station;
+    private StationManager station;
 
+    public int orderCount;
+
+    private string orderTitle;
     private float orderAmount;
     private string orderCargo;
+    private Vector3 orderLocation;
+    private string orderFluff;
 
     void Start()
     {
-        //station = gameObject.GetComponent<StationManager>();
+        station = FindFirstObjectByType<StationManager>();
 
         Order_Details();
 
         orderText = GetComponentInChildren<TextMeshProUGUI>();
-        orderText.text = "Assignment details [PLACE HOLDER]. Deliver " + orderAmount.ToString() + " of " + orderCargo + ". Will You Accept?";
+        orderText.text = "Assignment details. Deliver " + orderAmount.ToString() + " of " + orderCargo + ". Will You Accept?";
         orderAccept = false;
-    }
-    
-    void Update()
-    {  
     }
 
     public void Order_Button()
     {
         if (!orderAccept)
         {
+            //accepts the order
             orderAccept = true;
             Debug.Log("Order Accepted");
             GetComponentInChildren<Image>().color = new Color(0.204f, 0.3162003f, 0.2313726f, 1);
             orderButton.GetComponentInChildren<TextMeshProUGUI>().text = "Abandon";
+
+            //create the order as an object
+            AcceptedOrder order = new AcceptedOrder();
+            order.AOtitle = orderTitle;
+            order.AOcargo = orderCargo;
+            order.AOamount = orderAmount;
+            order.AOlocation = orderLocation;
+
+            //send the object and indentifier over
+            AssignmentHandler.assignmentHandler.Assignment_Accept(order, orderCount);
         }
 
         else if (orderAccept) 
         { 
+            //abandons the order
             orderAccept = false;
             Debug.Log("Order Rescinded");
             GetComponentInChildren<Image>().color = new Color(0.3882353f, 0.3162003f, 0.2313726f, 1);
             orderButton.GetComponentInChildren<TextMeshProUGUI>().text = "Accept";
+
+            //deletes object sent over
+            AssignmentHandler.assignmentHandler.Assignment_Abandon(orderCount);
         }
     }
 
     private void Order_Details()
     {
+        orderTitle = "Title";
         orderAmount = Random.Range(10, 35);
-        //orderCargo = station.assignmentCargo[Random.Range(0, station.assignmentCargo.Length)];
+        orderCargo = station.assignmentResources[Random.Range(0, station.assignmentResources.Length)];
+        orderLocation = new Vector3(0, 0, 0);
+        orderFluff = "Order fluff";
     }
+}
+public class AcceptedOrder
+{
+    public string AOtitle;
+    public string AOcargo;
+    public float AOamount;
+    public Vector3 AOlocation;
 }
