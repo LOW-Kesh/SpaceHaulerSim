@@ -18,8 +18,8 @@ public class OrderGenerator : MonoBehaviour
     private string orderTitle;
     private float orderAmount;
     private string orderCargo;
-    private Vector3 orderLocation;
-    private string orderFluff;
+    private stationSettings orderLocation;
+    //private string orderFluff;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class OrderGenerator : MonoBehaviour
         Order_Details();
 
         orderText = GetComponentInChildren<TextMeshProUGUI>();
-        orderText.text = "Assignment details. Deliver " + orderAmount.ToString() + " of " + orderCargo + ". Will You Accept?";
+        orderText.text = "Assignment details. Deliver " + orderAmount.ToString() + " of " + orderCargo + " to " + orderLocation.name + ". Will You Accept?";
         orderAccept = false;
     }
 
@@ -71,8 +71,11 @@ public class OrderGenerator : MonoBehaviour
         orderTitle = "Title";
         orderAmount = Random.Range(10, 35);
         orderCargo = station.assignmentResources[Random.Range(0, station.assignmentResources.Length)];
-        orderLocation = new Vector3(0, 0, 0);
-        orderFluff = "Order fluff";
+
+        //choosing a random station to deliver to
+        int i = Random.Range(0, AllStationManager.allStations.AllStationData.Length);
+        orderLocation = AllStationManager.allStations.AllStationData[i];
+        //orderFluff = "Order fluff";
     }
 }
 public class AcceptedOrder
@@ -80,5 +83,5 @@ public class AcceptedOrder
     public string AOtitle;
     public string AOcargo;
     public float AOamount;
-    public Vector3 AOlocation;
+    public stationSettings AOlocation;
 }

@@ -4,28 +4,18 @@ using UnityEngine.UIElements;
 
 public class StationManager : MonoBehaviour
 {
-    private bool alreadyAwake;
     public string[] assignmentResources;
-
     public int ID;
-    public string Name;
-    public string Type;
+    public string type;
 
-    private void Awake()
+    void Awake()
     {
-        if (!alreadyAwake)
-        {
-            Set_Resources();
-            gameObject.name = Name;
-
-
-            alreadyAwake = true;
-        }
     }
 
-    public void Set_Resources()
+    public void Configuration(stationSettings config)
     {
-        assignmentResources = AllResources.allResources.Station_Resource_Generator(Type);
-        Debug.Log("Set Station Resources");
+        gameObject.name = config.name;
+        ID = config.iD;
+        type = config.type;
     }
 }

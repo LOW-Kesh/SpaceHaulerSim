@@ -10,9 +10,9 @@ public class AssignmentHandler : MonoBehaviour
     public GameObject order;
     public GameObject content;
     public int orderCount;
-    private GameObject[] orders;
 
     public AcceptedOrder[] orderList;
+    private GameObject[] generatedOrders;
 
     void Start()
     {
@@ -23,8 +23,16 @@ public class AssignmentHandler : MonoBehaviour
         for (int i = 0; i < orderCount; i++)
         {
             Instantiate(order, content.transform);
-            order.GetComponent<OrderGenerator>().orderCount = i;
         }
+
+        int j = 0;
+        generatedOrders = GameObject.FindGameObjectsWithTag("Order");
+        foreach (GameObject genorder in generatedOrders)
+        {
+            genorder.GetComponent<OrderGenerator>().orderCount = j;
+            j++;
+        }
+
 
         orderList = null;
         orderList = new AcceptedOrder[orderCount];
@@ -34,20 +42,27 @@ public class AssignmentHandler : MonoBehaviour
     {
         if (reset)
         {
-            orders = GameObject.FindGameObjectsWithTag("Order");
-            foreach (GameObject ord in orders)
+            foreach (GameObject ord in generatedOrders)
             {
                 Destroy(ord);
             }
+            generatedOrders = null;
 
             orderCount = Random.Range(1, 5);
             for (int i = 0; i < orderCount; i++)
             {
                 Instantiate(order, content.transform);
-                order.GetComponent<OrderGenerator>().orderCount = i;
-                orderList = new AcceptedOrder[orderCount];
             }
 
+            int j = 0;
+            generatedOrders = GameObject.FindGameObjectsWithTag("Order");
+            foreach (GameObject genorder in generatedOrders)
+            {
+                genorder.GetComponent<OrderGenerator>().orderCount = j;
+                Debug.Log(j);
+                j++;
+            }
+            orderList = new AcceptedOrder[orderCount];
             reset = false;
         }
     }
@@ -75,7 +90,6 @@ public class AssignmentHandler : MonoBehaviour
             if (ord != null)
             {
                 ObjectiveHandler.objHandler.AssignOrder(ord);
-                Debug.Log ("moved " + ord.AOamount);
             }
         }
     }

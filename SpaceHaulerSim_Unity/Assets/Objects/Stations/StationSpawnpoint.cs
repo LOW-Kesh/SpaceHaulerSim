@@ -16,19 +16,21 @@ public class StationSpawnpoint : MonoBehaviour
 
     private void Start()
     {
-
-        stationSpawnSettings = AllStationManager.allStations.configSettings;
         Debug.Log(stationSpawnSettings.name);
 
         Instantiate(station, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
         stationmanager = GetComponentInChildren<StationManager>();
+        stationmanager.Configuration(stationSpawnSettings);
+        Set_Resources();
 
-        stationmanager.name = stationSpawnSettings.name;
-        stationmanager.ID = stationSpawnSettings.iD;
-        stationmanager.Type = stationSpawnSettings.type;
         stationmanager.gameObject.SetActive(false);
 
         ship = shipcontrols.shipControls.gameObject;
+    }
+    public void Set_Resources()
+    {
+        stationmanager.assignmentResources = AllResources.allResources.Station_Resource_Generator(stationSpawnSettings.type);
+        Debug.Log("Set Station Resources");
     }
 
     void FixedUpdate()

@@ -55,7 +55,9 @@ MonoBehaviour:
   amount: 0
   cargo: 
   location: {x: 0, y: 0, z: 0}
-  Abandon: 0
+  Stationname: 
+  orderText: {fileID: 415562628340011544}
+  trackText: {fileID: 5522759593555091921}
 --- !u!1 &3044859043269288813
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,10 +313,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1742239332271578240}
         m_TargetAssemblyTypeName: AssignedOrders, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: Track_Objective
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

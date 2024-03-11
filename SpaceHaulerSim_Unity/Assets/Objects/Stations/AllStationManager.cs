@@ -11,26 +11,38 @@ public class AllStationManager : MonoBehaviour
     public Vector3[] allStationSpawnPositions;
     public string[] allStationType;
     public string[] allStationName;
-    public stationSettings configSettings;
+
+    private StationSpawnpoint[] configSettings;
+    public stationSettings[] AllStationData;
 
     void Start()
     {
         allStations = this;
-
     }
 
     public void SpawnStations()
     {
-        int i = 0;
+        AllStationData = new stationSettings[allStationSpawnPositions.Length];
+
         foreach (Vector3 spawn in allStationSpawnPositions)
         {
-            configSettings = new stationSettings();
-            configSettings.iD = i;
-            configSettings.type = allStationType[i];
-            configSettings.name = allStationName[i];
-
             Instantiate(stationSpawner, spawn, Quaternion.identity, gameObject.transform);
-            Debug.Log(configSettings.iD + ", " + configSettings.name);
+        }
+
+        configSettings = gameObject.GetComponentsInChildren<StationSpawnpoint>();
+
+        int i = 0; 
+        foreach (StationSpawnpoint set in configSettings)
+        {
+            Debug.Log(set.gameObject.transform.position);
+            stationSettings config = new stationSettings();
+            config.iD = i;
+            config.name = allStationName[i];
+            config.type = allStationType[i];
+            config.location = allStationSpawnPositions[i];
+
+            set.stationSpawnSettings = config;
+            AllStationData[i] = config;
             i++;
         }
     }
@@ -41,4 +53,5 @@ public class stationSettings
     public int iD;
     public string name;
     public string type;
+    public Vector3 location;
 }

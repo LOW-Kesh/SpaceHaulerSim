@@ -62,7 +62,7 @@ public class dockingScript : MonoBehaviour
                 //remove old scene
                 SceneManager.UnloadSceneAsync(2, UnloadSceneOptions.None);
 
-                //turn off UI in main scene 
+                //turn on UI in main scene 
                 foreach (var item in Uicomponents)
                 {
                     item.SetActive(true);

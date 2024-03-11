@@ -33,6 +33,7 @@ public class TrackableObject : MonoBehaviour
             ship = shipcontrols.shipControls;
             tracking = true;
             TrackingUI.trackingUI.trackingObj = gameObject.transform.position;
+            TrackingUI.trackingUI.trackingName = gameObject.name;
             ship.isTracking = true;
             ship.trackVel = rb.velocity;
         }

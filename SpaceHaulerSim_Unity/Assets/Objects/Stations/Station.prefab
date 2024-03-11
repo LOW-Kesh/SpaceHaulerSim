@@ -198,7 +198,7 @@ MonoBehaviour:
   assignmentResources: []
   ID: 0
   Name: 
-  Type: Waystation
+  Type: 
 --- !u!1 &5548001745973477319
 GameObject:
   m_ObjectHideFlags: 0
