@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3442407632564948335}
   - component: {fileID: 7639690846732441744}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Starboard Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -64,14 +64,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
-  field of view: 40
+  far clip plane: 85
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 151
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4501414719920005622}
   - component: {fileID: 8750284664363443030}
   - component: {fileID: 8182865501836524359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 5576762216472852335}
   - component: {fileID: 6681201562100009655}
   - component: {fileID: 9065977618861426182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShipDoors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,8 +282,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2656781048088865378}
   - component: {fileID: 6900377299306725270}
-  m_Layer: 0
-  m_Name: dev camera
+  m_Layer: 7
+  m_Name: Sonar Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,13 +297,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5110489724202624267}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08842806, y: -0.94779134, z: 0.15976319, w: -0.26143438}
-  m_LocalPosition: {x: -1.73, y: 1.39, z: 1.98}
+  m_LocalRotation: {x: -0.12385673, y: -0.9164448, z: 0.2897611, w: -0.2466312}
+  m_LocalPosition: {x: -3.1249657, y: 3.7049985, z: 4.6070075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6346948521124896467}
-  m_LocalEulerAnglesHint: {x: 20.431, y: -209.913, z: 5.148}
+  m_LocalEulerAnglesHint: {x: 36.313, y: -208.159, z: 5.99}
 --- !u!20 &6900377299306725270
 Camera:
   m_ObjectHideFlags: 0
@@ -311,6 +311,89 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5110489724202624267}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.012014942, g: 0.013189463, b: 0.01886791, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 71
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 192
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!1 &5593736814650867518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8945635646742128753}
+  - component: {fileID: 5496597485178172211}
+  m_Layer: 7
+  m_Name: Stern Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8945635646742128753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593736814650867518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.01148598, y: -0.03880594, z: 0.006679839, w: -0.9991585}
+  m_LocalPosition: {x: -0.6599648, y: 0.5709932, z: 0.42000037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6346948521124896467}
+  m_LocalEulerAnglesHint: {x: -1.285, y: -355.543, z: -0.816}
+--- !u!20 &5496597485178172211
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593736814650867518}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -335,15 +418,15 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.01
+  far clip plane: 85
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 151
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -365,7 +448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8967392502283642863}
   - component: {fileID: 6806384460774422249}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Port Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -418,15 +501,15 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.04
-  far clip plane: 1000
-  field of view: 40
+  near clip plane: 0.01
+  far clip plane: 85
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 151
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -453,7 +536,8 @@ GameObject:
   - component: {fileID: 8257852703924115739}
   - component: {fileID: 4779303087795952915}
   - component: {fileID: 1904463072297860293}
-  m_Layer: 0
+  - component: {fileID: 1273791444283545451}
+  m_Layer: 7
   m_Name: PlayerShip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -478,6 +562,7 @@ Transform:
   - {fileID: 2656781048088865378}
   - {fileID: 8967392502283642863}
   - {fileID: 3442407632564948335}
+  - {fileID: 8945635646742128753}
   - {fileID: 893276432372788905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.734, y: 0.494, z: -0.097}
@@ -494,6 +579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineLock: 0
+  inCombat: 0
+  timeSpeedMultiplier: 3
   xVel: 0
   yVel: 0
   zVel: 0
@@ -504,6 +591,8 @@ MonoBehaviour:
   RCSspeed: 0.5
   rotSpeed: 0.5
   slowRot: 0.1
+  maxSpeed: 0
+  maxRCSSpeed: 0
   ThrustControl: {fileID: 0}
 --- !u!136 &2429801617013887184
 CapsuleCollider:
@@ -536,7 +625,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8672971603320775637}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -569,10 +658,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   port: {fileID: 6851843052952224718}
   starboard: {fileID: 2141205317828180962}
-  devcam: {fileID: 5110489724202624267}
+  stern: {fileID: 5593736814650867518}
   rotationSpeed: 0.05
   zoomSpeed: 0.05
-  minFOV: 40
+  minFOV: 30
   maxFOV: 100
 --- !u!81 &4779303087795952915
 AudioListener:
@@ -595,6 +684,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   docked: 0
+--- !u!114 &1273791444283545451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672971603320775637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ade529f05c6a74ca37e10de1a1af87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonarCam: {fileID: 5110489724202624267}
 --- !u!1 &8733768502008186098
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893276432372788905}
   - component: {fileID: 7495838891086450215}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,9 +832,25 @@ PrefabInstance:
       propertyPath: gyrocam
       value: 
       objectReference: {fileID: 7495838891086450215}
+    - target: {fileID: 3258672860452192242, guid: 2bd025b15ee98514f9210cdf4d5fdd4c, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352140332118728857, guid: 2bd025b15ee98514f9210cdf4d5fdd4c, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515119707813443242, guid: 2bd025b15ee98514f9210cdf4d5fdd4c, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6848562858053795935, guid: 2bd025b15ee98514f9210cdf4d5fdd4c, type: 3}
       propertyPath: m_Name
       value: Gyroscope
+      objectReference: {fileID: 0}
+    - target: {fileID: 6848562858053795935, guid: 2bd025b15ee98514f9210cdf4d5fdd4c, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -39,7 +39,10 @@ public class dockingScript : MonoBehaviour
             {
                 Debug.Log("Ship Docked");
                 shipDocked = true;
+
+                //pause ship controls and scene
                 ship.GetComponent<ShipDocking>().docked = true;
+                StateManager.Statemanager.Pause();
 
                 //turn off UI in main scene 
                 foreach (var item in Uicomponents)
@@ -67,6 +70,9 @@ public class dockingScript : MonoBehaviour
                 {
                     item.SetActive(true);
                 }
+
+                //unpause scene
+                StateManager.Statemanager.UnPause();
             }
         }
     }

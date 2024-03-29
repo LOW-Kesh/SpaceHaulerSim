@@ -12,6 +12,12 @@ public class StationManager : MonoBehaviour
     {
     }
 
+    void FixedUpdate()
+    {
+        Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+        transform.Rotate(0, 0.07f, 0);
+    }
+
     public void Configuration(stationSettings config)
     {
         gameObject.name = config.name;

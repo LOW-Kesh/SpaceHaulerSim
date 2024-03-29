@@ -9,6 +9,7 @@ TagManager:
   - Global
   - PlayerSpawn
   - UI
+  - Sonar
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Sonar
+  - Player
   - 
   - 
   - 

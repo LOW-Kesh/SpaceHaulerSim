@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AssignmentScreen.unity
     guid: 0ca74fdb710c73d46bb0dac3c9988c3a
+  - enabled: 1
+    path: Assets/Scenes/Inventory.unity
+    guid: 98b6539dec57c6741981f0c57fbb5ba5
   m_configObjects: {}

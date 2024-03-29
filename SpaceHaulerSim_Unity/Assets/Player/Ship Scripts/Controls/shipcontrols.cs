@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class shipcontrols : MonoBehaviour
     public static shipcontrols shipControls;
 
     public bool engineLock;
+    public bool inCombat;
+    public int timeSpeedMultiplier;
+    public bool timeSpeedUp;
 
     public float xVel;
     public float yVel;
@@ -23,6 +27,8 @@ public class shipcontrols : MonoBehaviour
 
     public float rotSpeed;
     public float slowRot;
+    public float maxSpeed;
+    public float maxRCSSpeed;
     public Slider ThrustControl;
     private Rigidbody rb;
 
@@ -37,6 +43,32 @@ public class shipcontrols : MonoBehaviour
         engineLock = false;
 
         ThrustControl = GameObject.Find("ThrustSlider").GetComponent<Slider>();
+        timeSpeedUp = false;
+    }
+    private void Update()
+    {
+        if (StateManager.Statemanager.pauseScene) { engineLock = true; }
+        else if (!StateManager.Statemanager.pauseScene) { engineLock = false; }
+
+        if (!engineLock)
+        {
+            //speed up time
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (!timeSpeedUp)
+                {
+                    Debug.Log("Time Speed-Up On");
+                    Time.timeScale = timeSpeedMultiplier;
+                    timeSpeedUp = true;
+                }
+                if (timeSpeedUp)
+                {
+                    Debug.Log("Time Speed-up Off");
+                    Time.timeScale = 1;
+                    timeSpeedUp = false;
+                }
+            }
+        }
     }
 
     void FixedUpdate()
@@ -52,12 +84,10 @@ public class shipcontrols : MonoBehaviour
             ThrustControl.GetComponentInChildren<TextMeshProUGUI>().text = gauge.ToString() + " Speed";
             rb.AddForce(gameObject.transform.forward * -ThrustControl.value * moveSpeed);
 
+
             //all stop
             if (Input.GetKey(KeyCode.Space))
             {
-                /*rb.velocity = Vector3.MoveTowards(rb.velocity, Vector3.zero, 1);
-                rb.angularVelocity = Vector3.MoveTowards(rb.angularVelocity, Vector3.zero, 1);*/
-
                 rb.drag = rb.drag + 0.05f;
                 rb.angularDrag = rb.angularDrag + 0.05f;
             }
@@ -72,7 +102,7 @@ public class shipcontrols : MonoBehaviour
             {
                 if (isTracking)
                 {
-                    rb.velocity = Vector3.MoveTowards(rb.velocity, trackVel, 0.1f);
+                    rb.velocity = Vector3.MoveTowards(rb.velocity, trackVel, 0.05f);
                 }
                 else { Debug.Log("No Object Tracked"); }
             }

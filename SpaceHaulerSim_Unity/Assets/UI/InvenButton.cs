@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
 public class InvenButton : MonoBehaviour
 {
-    public void Inventory()
+
+    void Start()
     {
-        SceneManager.LoadScene("Inventory");
+    }
+    public void InventoryOpen()
+    {
+        foreach (var component in StateManager.Statemanager.UIcomponents)
+        {
+            component.SetActive(false);
+        }
+        StateManager.Statemanager.Pause();
+        SceneManager.LoadSceneAsync("Inventory", LoadSceneMode.Additive);
     }
 }
