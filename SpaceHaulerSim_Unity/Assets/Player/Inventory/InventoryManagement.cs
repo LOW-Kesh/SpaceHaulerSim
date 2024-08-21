@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class InventoryManagement : MonoBehaviour
 {
-
-
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -17,8 +14,8 @@ public class InventoryManagement : MonoBehaviour
             {
                 component.SetActive(true);
             }
-            SceneManager.UnloadSceneAsync("Inventory", UnloadSceneOptions.None);
             StateManager.Statemanager.UnPause();
+            SceneManager.UnloadSceneAsync("Inventory", UnloadSceneOptions.None);
         }
     }
 }

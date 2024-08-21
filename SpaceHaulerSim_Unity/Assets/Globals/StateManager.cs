@@ -13,6 +13,7 @@ public class StateManager : MonoBehaviour
     public Transform playerTran;
     public bool pauseScene;
     public GameObject pauseMenu;
+    public bool inMenu;
 
 
     void Start()
@@ -51,29 +52,31 @@ public class StateManager : MonoBehaviour
             //gather UI components in scene
             UIcomponents = GameObject.FindGameObjectsWithTag("UI");
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (!inMenu)
         {
-            if (!pauseScene)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Pause();
-                foreach (GameObject component in UIcomponents)
+                if (!pauseScene)
                 {
-                    component.SetActive(false);
-                }
-                pauseMenu.SetActive(true);
-            }
-            else if (pauseScene)
-            {
-                if(pauseMenu.activeSelf == true)
-                {
-                    pauseMenu.SetActive(false);
+                    Pause();
                     foreach (GameObject component in UIcomponents)
                     {
-                        component.SetActive(true);
+                        component.SetActive(false);
                     }
+                    pauseMenu.SetActive(true);
                 }
-                UnPause();
+                else if (pauseScene)
+                {
+                    if (pauseMenu.activeSelf == true)
+                    {
+                        pauseMenu.SetActive(false);
+                        foreach (GameObject component in UIcomponents)
+                        {
+                            component.SetActive(true);
+                        }
+                    }
+                    UnPause();
+                }
             }
         }
 

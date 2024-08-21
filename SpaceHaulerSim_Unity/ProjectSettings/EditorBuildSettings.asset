@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SpaceScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/StationMenu.unity
+    guid: 0877115158da95b4a8c226d2205a1018
+  - enabled: 1
     path: Assets/Scenes/AssignmentScreen.unity
     guid: 0ca74fdb710c73d46bb0dac3c9988c3a
   - enabled: 1
     path: Assets/Scenes/Inventory.unity
     guid: 98b6539dec57c6741981f0c57fbb5ba5
+  - enabled: 1
+    path: Assets/Scenes/CargoBay.unity
+    guid: 041598f0b25baf14cab5614a9c8b4a98
   m_configObjects: {}

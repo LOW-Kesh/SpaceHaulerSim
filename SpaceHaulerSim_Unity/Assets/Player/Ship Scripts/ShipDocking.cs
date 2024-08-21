@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ShipDocking : MonoBehaviour
@@ -7,6 +8,7 @@ public class ShipDocking : MonoBehaviour
     public bool docked;
     private Rigidbody rb;
     private shipcontrols controls;
+    public static StationManager currentStation;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>(); 

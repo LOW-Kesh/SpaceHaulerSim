@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AssignmentHandler : MonoBehaviour
 {
@@ -65,6 +66,11 @@ public class AssignmentHandler : MonoBehaviour
             orderList = new AcceptedOrder[orderCount];
             reset = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+           LeaveAssignments();
+        }
     }
 
     //this will hold the accepted orders while in the Assignment Menu. 
@@ -85,13 +91,23 @@ public class AssignmentHandler : MonoBehaviour
 
     public void Assign_Objectives()
     {
+        //  commit to the chosen courier assignements. turn courier assignments into mission objectives
         foreach (AcceptedOrder ord in orderList)
         {
             if (ord != null)
             {
                 ObjectiveHandler.objHandler.AssignOrder(ord);
+                ShipDocking.currentStation.HoldCargoInBay(ord);
             }
         }
+
+        Debug.Log("Assignemnts Commited");
+    }
+
+    public void LeaveAssignments()
+    {
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(3,UnloadSceneOptions.None);
     }
 
 

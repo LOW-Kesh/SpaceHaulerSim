@@ -11,7 +11,7 @@ public class OrderGenerator : MonoBehaviour
     public bool orderAccept;
     public GameObject orderButton;
 
-    private StationManager station;
+    public StationManager station;
 
     public int orderCount;
 
@@ -23,7 +23,7 @@ public class OrderGenerator : MonoBehaviour
 
     void Start()
     {
-        station = FindFirstObjectByType<StationManager>();
+        station = ShipDocking.currentStation;
 
         Order_Details();
 
