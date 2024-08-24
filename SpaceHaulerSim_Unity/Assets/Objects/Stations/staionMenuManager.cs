@@ -22,15 +22,13 @@ public class staionMenuManager : MonoBehaviour
 
     public void AssignmentMenuButton()
     {
-        SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(2, UnloadSceneOptions.None);
+        StateManager.Statemanager.LeaveMenu(2, 3);
         Debug.Log("Assignment Menu");
     }
 
     public void CargobayButton()
     {
-        SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(2, UnloadSceneOptions.None);
+        StateManager.Statemanager.LeaveMenu(2, 5);
         Debug.Log("CargoBay Menu");
     }
 

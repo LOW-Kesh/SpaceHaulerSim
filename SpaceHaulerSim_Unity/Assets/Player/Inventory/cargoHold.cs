@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cargoHold : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu]
+
+public class cargoHold : ScriptableObject
+{
+    //capacity 
+    public float maxCapacity;
+
+    //carrying
+    public string[] cargoCarrying;
+
+    //modifiers
+    public int modiferMax;
+    public int modifierCount;
+    public bool radSheilding;
+    public bool farradyCage;
+    public bool scanSheilding;
 }

@@ -106,8 +106,7 @@ public class AssignmentHandler : MonoBehaviour
 
     public void LeaveAssignments()
     {
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(3,UnloadSceneOptions.None);
+        StateManager.Statemanager.LeaveMenu(3, 2);
     }
 
 

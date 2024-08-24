@@ -92,4 +92,10 @@ public class StateManager : MonoBehaviour
         pauseScene = false;
         Time.timeScale = 1;
     }
+
+    public void LeaveMenu(int unloadScene, int loadScene)
+    {
+        SceneManager.UnloadSceneAsync(unloadScene, UnloadSceneOptions.None);
+        SceneManager.LoadSceneAsync(loadScene, LoadSceneMode.Additive);
+    }
 }

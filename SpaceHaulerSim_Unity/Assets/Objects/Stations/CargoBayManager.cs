@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CargoBayManager : MonoBehaviour
 {
@@ -29,5 +30,10 @@ public class CargoBayManager : MonoBehaviour
         AcceptedOrder[] cargoInStation;
         cargoInStation = ShipDocking.currentStation.CargoOrders;
         return cargoInStation;
+    }
+
+    public void leaveCargoBay()
+    {
+        StateManager.Statemanager.LeaveMenu(5, 2);
     }
 }

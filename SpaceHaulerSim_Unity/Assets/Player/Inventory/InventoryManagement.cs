@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class InventoryManagement : MonoBehaviour
 {
+    public cargoHold[] HoldsOnShip;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
