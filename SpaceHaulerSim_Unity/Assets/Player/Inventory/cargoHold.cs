@@ -7,8 +7,13 @@ using UnityEngine;
 
 public class cargoHold : ScriptableObject
 {
+    //identifier
+    public string Holdname;
+    public bool defaultHold;
+
     //capacity 
     public float maxCapacity;
+    public float currentCapacity;
 
     //carrying
     public string[] cargoCarrying;

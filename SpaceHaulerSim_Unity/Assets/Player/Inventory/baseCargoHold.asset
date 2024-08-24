@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51325bb92cb18aa41893e15a26b388b0, type: 3}
   m_Name: baseCargoHold
   m_EditorClassIdentifier: 
+  Holdname: BaseCargoHold
+  defaultHold: 1
   maxCapacity: 500
-  cargoCarrying: []
+  currentCapacity: 45
+  cargoCarrying:
+  - Balloons
+  - Grenades
   modiferMax: 0
   modifierCount: 0
   radSheilding: 0
