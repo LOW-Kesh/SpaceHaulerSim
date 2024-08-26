@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -424,6 +424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CargoInBay: {fileID: 5777783111445099425, guid: 45a7d64c1949d5542b35d05af97b020b, type: 3}
   content: {fileID: 1472158467}
+  capIndicator: {fileID: 24660808}
+  bayCap: 500
 --- !u!1 &206034095
 GameObject:
   m_ObjectHideFlags: 0

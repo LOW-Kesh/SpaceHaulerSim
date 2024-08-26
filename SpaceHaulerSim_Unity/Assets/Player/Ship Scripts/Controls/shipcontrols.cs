@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +21,8 @@ public class shipcontrols : MonoBehaviour
 
     public float moveSpeed;
     public float RCSspeed;
+    public TextMeshProUGUI speedGauge;
+    public float velMagCap;
 
     public float rotSpeed;
     public float slowRot;
@@ -41,9 +40,8 @@ public class shipcontrols : MonoBehaviour
         xVel = 0; yVel = 0; zVel = 0;
         rb = GetComponent<Rigidbody>();
         engineLock = false;
-
-        ThrustControl = GameObject.Find("ThrustSlider").GetComponent<Slider>();
         timeSpeedUp = false;
+
     }
     private void Update()
     {
@@ -53,20 +51,15 @@ public class shipcontrols : MonoBehaviour
         if (!engineLock)
         {
             //speed up time
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKey(KeyCode.F))
             {
-                if (!timeSpeedUp)
-                {
-                    Debug.Log("Time Speed-Up On");
-                    Time.timeScale = timeSpeedMultiplier;
-                    timeSpeedUp = true;
-                }
-                if (timeSpeedUp)
-                {
-                    Debug.Log("Time Speed-up Off");
-                    Time.timeScale = 1;
-                    timeSpeedUp = false;
-                }
+                Time.timeScale = timeSpeedMultiplier;
+                timeSpeedUp = true;
+            }
+            else 
+            {
+                Time.timeScale = 1;
+                timeSpeedUp = false;
             }
         }
     }
@@ -81,8 +74,11 @@ public class shipcontrols : MonoBehaviour
             //acceleration via thruster
             float gauge;
             gauge = ThrustControl.value;
-            ThrustControl.GetComponentInChildren<TextMeshProUGUI>().text = gauge.ToString() + " Speed";
-            rb.AddForce(gameObject.transform.forward * -ThrustControl.value * moveSpeed);
+            speedGauge.text = "Thrust Level: " + gauge.ToString();
+            if (Velocity.magnitude <= velMagCap)
+            {
+                rb.AddForce(gameObject.transform.forward * -ThrustControl.value * moveSpeed);
+            }
 
 
             //all stop

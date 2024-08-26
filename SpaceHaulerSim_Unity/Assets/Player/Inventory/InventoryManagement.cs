@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class InventoryManagement : MonoBehaviour
 {
-    public cargoHold[] HoldsOnShip;
-    public GameObject holdslot;
-    public GameObject holdselector;
+    //private AcceptedOrder[] ordersInHold;
+    public GameObject orderSlot;
+    public GameObject orderList;
+
+    public GameObject eventSystem;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            eventSystem.SetActive(false);
             foreach (GameObject component in StateManager.Statemanager.UIcomponents)
             {
                 component.SetActive(true);
@@ -25,14 +28,18 @@ public class InventoryManagement : MonoBehaviour
 
     private void Start()
     {
-        TextMeshProUGUI[] textholder = new TextMeshProUGUI[3];
+        TextMeshProUGUI[] textholder = new TextMeshProUGUI[5];
 
-        foreach (cargoHold hold in HoldsOnShip)
+        if (CargoMain.CargoMainScript.currentloading != 0)
         {
-            textholder = holdslot.GetComponentsInChildren<TextMeshProUGUI>();
-            textholder[0].text = hold.name;
-            textholder[1].text = hold.currentCapacity.ToString() + "/" + hold.maxCapacity.ToString();
-            Instantiate(holdslot, holdselector.transform);
+            foreach (AcceptedOrder ord in CargoMain.CargoMainScript.AllStoredOrders)
+            {
+                textholder = orderSlot.GetComponentsInChildren<TextMeshProUGUI>();
+                textholder[0].text = ord.AOcargo;
+                textholder[1].text = ord.AOamount.ToString();
+                textholder[2].text = ord.AOlocation.name;
+                Instantiate(orderSlot, orderList.transform);
+            }
         }
     }
 }
