@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class StationManager : MonoBehaviour
 {
-    public string[] assignmentResources;
+    public CargoRootScript[] assignmentResources;
     public AcceptedOrder[] CargoOrders;
     public int ID;
     public string type;

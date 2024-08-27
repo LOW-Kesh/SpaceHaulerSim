@@ -70,7 +70,7 @@ public class OrderGenerator : MonoBehaviour
     {
         orderTitle = "Title";
         orderAmount = Random.Range(10, 35);
-        orderCargo = station.assignmentResources[Random.Range(0, station.assignmentResources.Length)];
+        orderCargo = station.assignmentResources[Random.Range(0, station.assignmentResources.Length)].cargoName;
 
         //choosing a random station to deliver to
         int i = Random.Range(0, AllStationManager.allStations.AllStationData.Length);

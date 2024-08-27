@@ -1116,18 +1116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCargo:
-  - Cargo Type A
-  - Cargo Type B
-  - Cargo Type C
-  - Cargo Type D
-  - Cargo Type E
-  - Cargo Type F
-  - Cargo Type G
-  - Cargo Type H
-  - Cargo Type I
-  - Cargo Type J
-  - Cargo Type K
-  - Cargo Type L
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   stationSizeCargoVariety: 04000000070000000b00000010000000
 --- !u!114 &1747589280
 MonoBehaviour:
