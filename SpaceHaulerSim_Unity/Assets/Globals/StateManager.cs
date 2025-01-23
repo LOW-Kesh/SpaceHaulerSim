@@ -58,6 +58,7 @@ public class StateManager : MonoBehaviour
             {
                 if (!pauseScene)
                 {
+                    shipcontrols.shipControls.EngineEnabled(false); 
                     Pause();
                     foreach (GameObject component in UIcomponents)
                     {
@@ -75,6 +76,7 @@ public class StateManager : MonoBehaviour
                             component.SetActive(true);
                         }
                     }
+                    shipcontrols.shipControls.EngineEnabled(true);
                     UnPause();
                 }
             }
@@ -86,11 +88,13 @@ public class StateManager : MonoBehaviour
     {
         pauseScene = true;
         Time.timeScale = 0;
+        Debug.Log("pauseOn");
     }
     public void UnPause()
     {
         pauseScene = false;
         Time.timeScale = 1;
+        Debug.Log("pauseOff");
     }
 
     public void LeaveMenu(int unloadScene, int loadScene)

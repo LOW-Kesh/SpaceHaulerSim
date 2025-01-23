@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InventoryManagement : MonoBehaviour
 {
@@ -28,17 +30,30 @@ public class InventoryManagement : MonoBehaviour
 
     private void Start()
     {
-        TextMeshProUGUI[] textholder = new TextMeshProUGUI[5];
+        TextMeshProUGUI[] textholder = new TextMeshProUGUI[7];
 
         if (CargoMain.CargoMainScript.currentloading != 0)
         {
             foreach (AcceptedOrder ord in CargoMain.CargoMainScript.AllStoredOrders)
             {
-                textholder = orderSlot.GetComponentsInChildren<TextMeshProUGUI>();
-                textholder[0].text = ord.AOcargo;
-                textholder[1].text = ord.AOamount.ToString();
-                textholder[2].text = ord.AOlocation.name;
-                Instantiate(orderSlot, orderList.transform);
+                if (ord != null)
+                {
+                    //stuf related to order
+                    textholder = orderSlot.GetComponentsInChildren<TextMeshProUGUI>();
+                    textholder[0].text = ord.AOcargo;
+                    textholder[1].text = ord.AOamount.ToString();
+                    textholder[2].text = ord.AOlocation.name;
+
+
+                    CargoRootScript cargo = AllResources.allResources.allCargo[ord.AOcargoID];
+                    textholder[3].text = (cargo.cargoValue * ord.AOamount).ToString();
+                    textholder[4].text = (cargo.cargoWeight * ord.AOamount).ToString();
+                    textholder[5].text = cargo.cargoVulnerabilites;
+                    textholder[6].text = cargo.cargoHazards;
+                    orderSlot.GetComponentInChildren<RawImage>().texture = cargo.cargoSprite;
+
+                    Instantiate(orderSlot, orderList.transform);
+                }
             }
         }
     }

@@ -7,7 +7,7 @@ public class shipcontrols : MonoBehaviour
 {
     public static shipcontrols shipControls;
 
-    public bool engineLock;
+    private bool engineLock;
     public bool inCombat;
     public int timeSpeedMultiplier;
     public bool timeSpeedUp;
@@ -43,10 +43,8 @@ public class shipcontrols : MonoBehaviour
         timeSpeedUp = false;
 
     }
-    private void Update()
+   /* private void Update()
     {
-        if (StateManager.Statemanager.pauseScene) { engineLock = true; }
-        else if (!StateManager.Statemanager.pauseScene) { engineLock = false; }
 
         if (!engineLock)
         {
@@ -62,6 +60,12 @@ public class shipcontrols : MonoBehaviour
                 timeSpeedUp = false;
             }
         }
+    }*/
+
+    public void EngineEnabled(bool State)
+    {
+        if(State) { engineLock = false; }
+        if(!State) { engineLock = true; }
     }
 
     void FixedUpdate()
@@ -104,8 +108,6 @@ public class shipcontrols : MonoBehaviour
             }
 
             //RCS
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
                 //Headway & Astern
                 if (Input.GetKey(KeyCode.UpArrow))
                 {
@@ -144,7 +146,6 @@ public class shipcontrols : MonoBehaviour
                     rb.AddForce(gameObject.transform.up * zVel);
                 }
                 else { zVel = 0; }
-            }
 
 
             //Rotations

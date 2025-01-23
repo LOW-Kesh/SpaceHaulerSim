@@ -45,7 +45,7 @@ public class dockingScript : MonoBehaviour
                 leave = false;
 
                 //pause ship controls and scene
-                ship.GetComponent<ShipDocking>().docked = true;
+                ship.GetComponent<ShipDocking>().HoldShip(true);
                 ShipDocking.currentStation = gameObject.GetComponentInParent<StationManager>();
                 StateManager.Statemanager.Pause();
                 StateManager.Statemanager.inMenu = true;

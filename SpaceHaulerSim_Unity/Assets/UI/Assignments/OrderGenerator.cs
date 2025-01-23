@@ -16,6 +16,7 @@ public class OrderGenerator : MonoBehaviour
     public int orderCount;
 
     private string orderTitle;
+    private int orderID;
     private float orderAmount;
     private string orderCargo;
     private stationSettings orderLocation;
@@ -45,6 +46,7 @@ public class OrderGenerator : MonoBehaviour
             //create the order as an object
             AcceptedOrder order = new AcceptedOrder();
             order.AOtitle = orderTitle;
+            order.AOcargoID = orderID;
             order.AOcargo = orderCargo;
             order.AOamount = orderAmount;
             order.AOlocation = orderLocation;
@@ -68,9 +70,12 @@ public class OrderGenerator : MonoBehaviour
 
     private void Order_Details()
     {
+        CargoRootScript cargofororder;
         orderTitle = "Title";
         orderAmount = Random.Range(10, 35);
-        orderCargo = station.assignmentResources[Random.Range(0, station.assignmentResources.Length)].cargoName;
+        cargofororder = station.assignmentResources[Random.Range(0, station.assignmentResources.Length)];
+        orderCargo = cargofororder.cargoName;
+        orderID = cargofororder.cargoID;
 
         //choosing a random station to deliver to
         int i = Random.Range(0, AllStationManager.allStations.AllStationData.Length);
@@ -80,6 +85,7 @@ public class OrderGenerator : MonoBehaviour
 }
 public class AcceptedOrder
 {
+    public int AOcargoID;
     public string AOtitle;
     public string AOcargo;
     public float AOamount;

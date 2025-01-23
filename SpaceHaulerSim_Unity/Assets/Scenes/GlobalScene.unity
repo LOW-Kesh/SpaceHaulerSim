@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
+  m_IndirectSpecularColor: {r: 2.458279, g: 2.7961924, b: 3.3444753, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1116,9 +1116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCargo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e8bd69f3d7029af46922bb423ea37005, type: 2}
+  - {fileID: 11400000, guid: 14bc08ac62a78f04593f4b96a14cde97, type: 2}
+  - {fileID: 11400000, guid: 31f901fc17e576349871f7c80a6df095, type: 2}
   stationSizeCargoVariety: 04000000070000000b00000010000000
 --- !u!114 &1747589280
 MonoBehaviour:

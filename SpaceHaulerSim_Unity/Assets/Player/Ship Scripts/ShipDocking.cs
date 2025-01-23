@@ -11,20 +11,18 @@ public class ShipDocking : MonoBehaviour
     public static StationManager currentStation;
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>(); 
+        rb = gameObject.GetComponent<Rigidbody>();
         controls = gameObject.GetComponent<shipcontrols>();
     }
 
-    void FixedUpdate()
+    public void HoldShip(bool docked)
     {
-        if (docked)
+        if (docked) 
         {
             rb.velocity = Vector3.zero;
-            controls.engineLock = true;
+            controls.EngineEnabled(false);
         }
-        else if (!docked)
-        {
-            controls.engineLock = false;
-        }
+        if (!docked) 
+        { controls.EngineEnabled(true); }
     }
 }

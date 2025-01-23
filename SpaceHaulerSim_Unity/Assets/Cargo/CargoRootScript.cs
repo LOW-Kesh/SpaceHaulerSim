@@ -10,7 +10,7 @@ public class CargoRootScript : ScriptableObject
     public string cargoName;
     public int cargoID;
     public string cargoDesc;
-    public Sprite cargoSprite;
+    public Texture cargoSprite;
     public bool isFunctional;
     public float cargoValue;
     public float cargoWeight;

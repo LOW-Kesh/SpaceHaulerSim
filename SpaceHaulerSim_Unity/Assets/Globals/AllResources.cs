@@ -14,6 +14,7 @@ public class AllResources : MonoBehaviour
         allResources = this;
         
         //allCargo //= new string[11] { "Metal Alloys", "Stellar Plasma", "Food", "Ammunition", "Organic Compounds", "Delicate Electronics", "Heat Sinks", "Curie Coolant", "Propellant", "Crew Equipment", "Heavy Machinery" };
+       
     }
 
     public CargoRootScript[] Station_Resource_Generator(string type)

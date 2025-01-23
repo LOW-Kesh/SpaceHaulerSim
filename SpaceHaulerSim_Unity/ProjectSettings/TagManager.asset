@@ -10,6 +10,7 @@ TagManager:
   - PlayerSpawn
   - UI
   - Sonar
+  - Debris
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - Sonar
   - Player
-  - 
+  - Debris
   - 
   - 
   - 
